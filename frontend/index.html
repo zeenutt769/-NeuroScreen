@@ -478,6 +478,11 @@
             .nav-links { display: none; }
             .hero-section { padding: 40px 20px 36px; }
             .main-wrap { padding: 32px 16px 64px; }
+            .question-row { flex-direction: column; align-items: flex-start; gap: 16px; padding: 20px 16px; }
+            .q-controls { width: 100%; justify-content: flex-start; gap: 12px; }
+            .radio-label { flex: 1; max-width: none; height: 44px; }
+            .submit-row { justify-content: stretch; }
+            #submit-btn { width: 100%; justify-content: center; }
         }
 
         .footer-brand-logo {
@@ -543,6 +548,13 @@
         }
 
         .footer-socials a:hover { color: white; }
+
+        /* Lenis CSS */
+        html.lenis, html.lenis body { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        .lenis.lenis-scrolling iframe { pointer-events: none; }
     </style>
 </head>
 <body>
@@ -702,7 +714,27 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script>
+        // Init Lenis smooth scrolling
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
         // Now using a relative path, so it automatically works on Hugging Face Spaces or Localhost!
         const API_URL = "/predict";
 
