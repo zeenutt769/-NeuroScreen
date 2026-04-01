@@ -34,6 +34,8 @@ The API provides detailed insights including confidence scores and probabilities
 
 To provide an accessible and visual experience, we built **NeuroScreen** — a beautiful, glassmorphism-inspired single-page web application (`frontend/index.html`) that allows users to take the standard AQ-10 clinical screening test interactively.
 
+**Update:** The frontend UI is now **native to the backend**, served directly by FastAPI via `StaticFiles` on the root (`/`) endpoint!
+
 ### How it Connects & Works with the Model (Step-by-Step)
 1. **User Input Selection**: The frontend presents the 10 behavioral questions (A1–A10) and basic demographic fields (Age & Gender) mimicking a clinical form.
 2. **Data Parsing & Validation**: Upon clicking "Analyze & Predict", embedded JavaScript checks that all 10 questions are answered, avoiding silent prediction failures.
@@ -79,7 +81,8 @@ By simply running `python hf_upload.py`, the code was zipped and sent to Hugging
 
 ## 📌 API Usage & Endpoints
 
-- `GET /`: Health check, returns a list of available models and expected features.
+- `GET /`: Serves the interactive **NeuroScreen Frontend Web UI**.
+- `GET /api/info`: Health check, returns API status, available models, and expected features.
 - `GET /features`: Returns the names and count of all 18 features expected.
 - `POST /predict`: Submit a JSON payload to get an ASD prediction.
 
