@@ -1,11 +1,5 @@
 ---
-title: ASD Detection API
-emoji: 🧠
-colorFrom: blue
-colorTo: indigo
-sdk: docker
-pinned: false
----
+
 # ASD Detection API 🧠
 
 An intelligent, fast, and scalable Application Programming Interface (API) built to detect Autism Spectrum Disorder (ASD) in both adults and children using various pre-trained Machine Learning models.
