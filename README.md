@@ -1,4 +1,12 @@
 ---
+title: ASD Detection API
+emoji: 🧠
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
 
 # ASD Detection API 🧠
 WEBSITE LINK - https://zeenu002-asd-detection-api.hf.space/
