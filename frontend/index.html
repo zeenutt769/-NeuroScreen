@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASD Screening Questionnaire</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        rel="stylesheet">
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         :root {
             --cream: #f5f2eb;
@@ -30,9 +39,9 @@
             color: var(--text-dark);
             min-height: 100vh;
             /* grid background like image */
-            background-image: 
-                linear-gradient(rgba(26,58,143,0.07) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(26,58,143,0.07) 1px, transparent 1px);
+            background-image:
+                linear-gradient(rgba(26, 58, 143, 0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 58, 143, 0.07) 1px, transparent 1px);
             background-size: 32px 32px;
         }
 
@@ -90,7 +99,9 @@
             transition: color 0.2s;
         }
 
-        .nav-links a:hover { color: var(--blue); }
+        .nav-links a:hover {
+            color: var(--blue);
+        }
 
         .nav-cta {
             background: var(--blue);
@@ -102,16 +113,19 @@
             transition: background 0.2s !important;
         }
 
-        .nav-cta:hover { background: var(--blue-mid) !important; color: var(--white) !important; }
+        .nav-cta:hover {
+            background: var(--blue-mid) !important;
+            color: var(--white) !important;
+        }
 
         /* ===== HERO HEADER SECTION ===== */
         .hero-section {
             background: var(--white);
             border-bottom: 1.5px solid var(--border);
             padding: 56px 48px 48px;
-            background-image: 
-                linear-gradient(rgba(26,58,143,0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(26,58,143,0.05) 1px, transparent 1px);
+            background-image:
+                linear-gradient(rgba(26, 58, 143, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 58, 143, 0.05) 1px, transparent 1px);
             background-size: 32px 32px;
         }
 
@@ -188,8 +202,13 @@
             transition: background 0.15s;
         }
 
-        .question-row:last-child { border-bottom: none; }
-        .question-row:hover { background: var(--blue-pale); }
+        .question-row:last-child {
+            border-bottom: none;
+        }
+
+        .question-row:hover {
+            background: var(--blue-pale);
+        }
 
         .q-left {
             display: flex;
@@ -223,7 +242,9 @@
             flex-shrink: 0;
         }
 
-        .q-controls input[type="radio"] { display: none; }
+        .q-controls input[type="radio"] {
+            display: none;
+        }
 
         .radio-label {
             display: flex;
@@ -242,15 +263,19 @@
             letter-spacing: 0.2px;
         }
 
-        .radio-label:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-pale); }
+        .radio-label:hover {
+            border-color: var(--blue);
+            color: var(--blue);
+            background: var(--blue-pale);
+        }
 
-        input[type="radio"]:checked + .radio-label.yes {
+        input[type="radio"]:checked+.radio-label.yes {
             background: var(--blue);
             border-color: var(--blue);
             color: white;
         }
 
-        input[type="radio"]:checked + .radio-label.no {
+        input[type="radio"]:checked+.radio-label.no {
             background: var(--red);
             border-color: var(--red);
             color: white;
@@ -272,7 +297,9 @@
         }
 
         @media (max-width: 540px) {
-            .demo-grid { grid-template-columns: 1fr; }
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .field-label {
@@ -299,7 +326,10 @@
             appearance: none;
         }
 
-        .field-input:focus { border-color: var(--blue); background: var(--white); }
+        .field-input:focus {
+            border-color: var(--blue);
+            background: var(--white);
+        }
 
         /* ===== SUBMIT ===== */
         .submit-row {
@@ -324,22 +354,34 @@
             transition: background 0.2s;
         }
 
-        #submit-btn:hover { background: var(--blue-mid); }
-        #submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        #submit-btn:hover {
+            background: var(--blue-mid);
+        }
+
+        #submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
 
         #spinner {
             width: 16px;
             height: 16px;
-            border: 2px solid rgba(255,255,255,0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             border-top-color: white;
             border-radius: 50%;
             animation: spin 0.7s linear infinite;
             display: none;
         }
 
-        #spinner.show { display: block; }
+        #spinner.show {
+            display: block;
+        }
 
-        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
         /* ===== MODAL ===== */
         #result-modal {
@@ -349,7 +391,9 @@
             z-index: 200;
         }
 
-        #result-modal.show { display: block; }
+        #result-modal.show {
+            display: block;
+        }
 
         .modal-backdrop {
             position: absolute;
@@ -376,8 +420,8 @@
             text-align: center;
             border-bottom: 1.5px solid var(--border);
             background-image:
-                linear-gradient(rgba(26,58,143,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(26,58,143,0.04) 1px, transparent 1px);
+                linear-gradient(rgba(26, 58, 143, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 58, 143, 0.04) 1px, transparent 1px);
             background-size: 24px 24px;
         }
 
@@ -449,7 +493,9 @@
             transition: background 0.15s;
         }
 
-        .modal-close-btn:hover { background: var(--cream-dark); }
+        .modal-close-btn:hover {
+            background: var(--cream-dark);
+        }
 
         /* ===== FOOTER ===== */
         footer {
@@ -467,22 +513,68 @@
         }
 
         @media (max-width: 860px) {
-            .footer-main { grid-template-columns: 1fr 1fr 1fr; }
-            .footer-brand { grid-column: 1/-1; }
+            .footer-main {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .footer-brand {
+                grid-column: 1/-1;
+            }
         }
 
         @media (max-width: 540px) {
-            .footer-main { grid-template-columns: 1fr 1fr; padding: 32px 20px; }
-            .footer-brand { grid-column: 1/-1; }
-            nav { padding: 0 16px; }
-            .nav-links { display: none; }
-            .hero-section { padding: 40px 20px 36px; }
-            .main-wrap { padding: 32px 16px 64px; }
-            .question-row { flex-direction: column; align-items: flex-start; gap: 16px; padding: 20px 16px; }
-            .q-controls { width: 100%; justify-content: flex-start; gap: 12px; }
-            .radio-label { flex: 1; max-width: none; height: 44px; }
-            .submit-row { justify-content: stretch; }
-            #submit-btn { width: 100%; justify-content: center; }
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+                padding: 32px 20px;
+            }
+
+            .footer-brand {
+                grid-column: 1/-1;
+            }
+
+            nav {
+                padding: 0 16px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-section {
+                padding: 40px 20px 36px;
+            }
+
+            .main-wrap {
+                padding: 32px 16px 64px;
+            }
+
+            .question-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+                padding: 20px 16px;
+            }
+
+            .q-controls {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 12px;
+            }
+
+            .radio-label {
+                flex: 1;
+                max-width: none;
+                height: 44px;
+            }
+
+            .submit-row {
+                justify-content: stretch;
+            }
+
+            #submit-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         .footer-brand-logo {
@@ -511,15 +603,24 @@
             letter-spacing: 0.2px;
         }
 
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 9px; }
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 9px;
+        }
+
         .footer-col ul li a {
             font-size: 12.5px;
             color: var(--text-muted);
             text-decoration: none;
             transition: color 0.15s;
         }
-        .footer-col ul li a:hover { color: var(--blue); }
+
+        .footer-col ul li a:hover {
+            color: var(--blue);
+        }
 
         .footer-bottom {
             border-top: 1px solid var(--border);
@@ -532,7 +633,7 @@
 
         .footer-bottom p {
             font-size: 12px;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
         }
 
         .footer-socials {
@@ -541,22 +642,40 @@
         }
 
         .footer-socials a {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 12px;
             text-decoration: none;
             transition: color 0.15s;
         }
 
-        .footer-socials a:hover { color: white; }
+        .footer-socials a:hover {
+            color: white;
+        }
 
         /* Lenis CSS */
-        html.lenis, html.lenis body { height: auto; }
-        .lenis.lenis-smooth { scroll-behavior: auto !important; }
-        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-        .lenis.lenis-stopped { overflow: hidden; }
-        .lenis.lenis-scrolling iframe { pointer-events: none; }
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
     </style>
 </head>
+
 <body>
 
     <!-- NAVBAR -->
@@ -581,7 +700,8 @@
         <div class="hero-inner">
             <div class="badge">Clinical Screening</div>
             <h1 class="hero-title">Autism Spectrum<br>Assessment</h1>
-            <p class="hero-sub">Please answer the following 10 screening questions carefully. This tool evaluates behavioral traits associated with autism spectrum conditions.</p>
+            <p class="hero-sub">Please answer the following 10 screening questions carefully. This tool evaluates
+                behavioral traits associated with autism spectrum conditions.</p>
         </div>
     </div>
 
@@ -739,46 +859,46 @@
         const API_URL = "/predict";
 
         const questionsList = [
-            "I often notice small sounds when others do not",
-            "I usually concentrate more on the whole picture rather than small details",
-            "I find it easy to do more than one thing at once",
-            "If there is an interruption, I can switch back to what I was doing very quickly",
-            "I find it easy to read between the lines when someone is talking to me",
-            "I know how to tell if someone listening to me is getting bored",
-            "When I'm reading a story, I find it difficult to work out the characters' intentions",
-            "I like to collect information about categories of things (e.g. types of cars, birds, trains)",
-            "I find it easy to work out what someone is thinking or feeling just by looking at their face",
-            "I find it difficult to work out people's intentions",
-            "I prefer to do things the same way every time rather than trying new approaches",
-            "I find social situations easy to navigate and enjoy meeting new people",
-            "I tend to notice patterns in things all the time",
-            "I would rather go to a library than a party",
-            "I find myself drawn more to numbers and data than to people and feelings",
-            "When I talk, it is not always easy for others to get a word in edgewise",
-            "I enjoy social occasions such as parties and group gatherings",
-            "I am good at taking care of myself in social situations",
-            "I find it hard to make new friends",
-            "I notice patterns in things others might overlook",
-            "I prefer to stick to routines rather than being spontaneous",
-            "I find it easy to imagine what it would be like to be someone else",
-            "I like to plan activities carefully before starting them",
-            "I enjoy meeting new people and making small talk",
-            "I find change in my daily routine distressing",
-            "I would rather focus on one thing deeply than many things superficially",
-            "I can tell when someone wants to end a conversation even if they don't say so",
-            "I find it hard to make eye contact with others",
-            "I notice details in situations that others tend to overlook",
-            "I find group conversations harder to follow than one-on-one conversations",
-            "I find it easy to figure out the rules of a new game without being told",
-            "When I'm reading, I enjoy finding subtle connections the author may have hidden",
-            "I find it hard to understand jokes or sarcasm in conversation",
-            "I am able to sense the mood in a room when I walk into it",
-            "I prefer concrete facts over abstract theories",
-            "I find it difficult to imagine what a character in a book is feeling",
-            "I often get so absorbed in one thing that I lose track of time",
-            "I find it easy to multitask during conversations",
-            "I have a strong preference for doing things in a fixed order",
-            "I find it easier to understand written instructions than verbal ones"
+            "Do you often notice small sounds that others seem to miss?",
+            "Do you prefer focusing on details rather than the overall picture?",
+            "Do you find it hard to do more than one thing at the same time?",
+            "Do you find it difficult to switch back to a task after being interrupted?",
+            "Do you struggle to understand what someone really means without them saying it directly?",
+            "Do you find it hard to tell when someone is getting bored while talking to you?",
+            "Do you find it difficult to figure out a character's intentions while reading a story?",
+            "Do you enjoy collecting detailed information about specific topics or categories?",
+            "Do you find it hard to tell what someone is feeling just by looking at their face?",
+            "Do you often find it difficult to understand what people really intend to say?",
+            "Do you prefer following a fixed routine rather than doing things differently each day?",
+            "Do you find social situations confusing or overwhelming?",
+            "Do you frequently notice patterns in things that others do not seem to notice?",
+            "Do you prefer spending time alone rather than attending social gatherings?",
+            "Do you find numbers, data, or systems more interesting than conversations about people?",
+            "Do you find it hard to stop talking about topics you are deeply interested in?",
+            "Do you dislike attending parties or large group events?",
+            "Do you find it difficult to handle unexpected changes in your plans?",
+            "Do you find it hard to start or maintain friendships?",
+            "Do you feel uncomfortable or anxious in unfamiliar social settings?",
+            "Do you strongly prefer doing things in the same order every time?",
+            "Do you struggle to imagine how another person might be feeling in a situation?",
+            "Do you always plan things in detail before starting them?",
+            "Do you find small talk or casual conversation difficult or pointless?",
+            "Does a change in your daily routine cause you noticeable stress or discomfort?",
+            "Do you prefer to focus deeply on one thing rather than spread attention across many?",
+            "Do you miss social cues like someone wanting to end a conversation?",
+            "Do you avoid making eye contact during conversations?",
+            "Do you tend to notice very specific details that others usually overlook?",
+            "Do you find it harder to follow group conversations than one-on-one discussions?",
+            "Do you find loud noises, bright lights, or strong smells more disturbing than others seem to?",
+            "Do you take longer than others to process what someone has just said to you?",
+            "Do you find sarcasm, irony, or jokes confusing in conversations?",
+            "Do you find it hard to sense the general mood or atmosphere in a room?",
+            "Do you prefer clear and factual information over abstract or theoretical ideas?",
+            "Do you find it hard to connect emotionally with characters in books or movies?",
+            "Do you get so focused on one activity that you lose complete track of time?",
+            "Do you find it difficult to pay attention to a conversation while doing something else?",
+            "Do you feel uncomfortable when your belongings are moved or your order is changed?",
+            "Do you find written instructions easier to follow than spoken ones?"
         ];
 
         function getRandomQuestions(pool, count = 10) {
@@ -896,4 +1016,5 @@
         }
     </script>
 </body>
+
 </html>
