@@ -739,23 +739,61 @@
         const API_URL = "/predict";
 
         const questionsList = [
-            "A1: I often notice small sounds when others do not",
-            "A2: I usually concentrate more on the whole picture rather than small details",
-            "A3: I find it easy to do more than one thing at once",
-            "A4: If there is an interruption, I can switch back to what I was doing very quickly",
-            "A5: I find it easy to read between the lines when someone is talking to me",
-            "A6: I know how to tell if someone listening to me is getting bored",
-            "A7: When I'm reading a story, I find it difficult to work out the characters' intentions",
-            "A8: I like to collect information about categories of things (e.g. types of cars, birds, trains)",
-            "A9: I find it easy to work out what someone is thinking or feeling just by looking at their face",
-            "A10: I find it difficult to work out people's intentions"
+            "I often notice small sounds when others do not",
+            "I usually concentrate more on the whole picture rather than small details",
+            "I find it easy to do more than one thing at once",
+            "If there is an interruption, I can switch back to what I was doing very quickly",
+            "I find it easy to read between the lines when someone is talking to me",
+            "I know how to tell if someone listening to me is getting bored",
+            "When I'm reading a story, I find it difficult to work out the characters' intentions",
+            "I like to collect information about categories of things (e.g. types of cars, birds, trains)",
+            "I find it easy to work out what someone is thinking or feeling just by looking at their face",
+            "I find it difficult to work out people's intentions",
+            "I prefer to do things the same way every time rather than trying new approaches",
+            "I find social situations easy to navigate and enjoy meeting new people",
+            "I tend to notice patterns in things all the time",
+            "I would rather go to a library than a party",
+            "I find myself drawn more to numbers and data than to people and feelings",
+            "When I talk, it is not always easy for others to get a word in edgewise",
+            "I enjoy social occasions such as parties and group gatherings",
+            "I am good at taking care of myself in social situations",
+            "I find it hard to make new friends",
+            "I notice patterns in things others might overlook",
+            "I prefer to stick to routines rather than being spontaneous",
+            "I find it easy to imagine what it would be like to be someone else",
+            "I like to plan activities carefully before starting them",
+            "I enjoy meeting new people and making small talk",
+            "I find change in my daily routine distressing",
+            "I would rather focus on one thing deeply than many things superficially",
+            "I can tell when someone wants to end a conversation even if they don't say so",
+            "I find it hard to make eye contact with others",
+            "I notice details in situations that others tend to overlook",
+            "I find group conversations harder to follow than one-on-one conversations",
+            "I find it easy to figure out the rules of a new game without being told",
+            "When I'm reading, I enjoy finding subtle connections the author may have hidden",
+            "I find it hard to understand jokes or sarcasm in conversation",
+            "I am able to sense the mood in a room when I walk into it",
+            "I prefer concrete facts over abstract theories",
+            "I find it difficult to imagine what a character in a book is feeling",
+            "I often get so absorbed in one thing that I lose track of time",
+            "I find it easy to multitask during conversations",
+            "I have a strong preference for doing things in a fixed order",
+            "I find it easier to understand written instructions than verbal ones"
         ];
+
+        function getRandomQuestions(pool, count = 10) {
+            const shuffled = [...pool].sort(() => Math.random() - 0.5);
+            return shuffled.slice(0, count);
+        }
+
+        const sessionQuestions = getRandomQuestions(questionsList, 10);
 
         const container = document.getElementById('questions-container');
 
-        questionsList.forEach((q, index) => {
+        sessionQuestions.forEach((q, index) => {
             const num = index + 1;
-            const [label, txt] = q.split(': ');
+            const label = "A" + num;
+            const txt = q;
             const html = `
                 <div class="question-row">
                     <div class="q-left">
